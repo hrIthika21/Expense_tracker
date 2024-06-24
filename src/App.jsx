@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Navbar from './Navbar.jsx'
 import './expense_tracker.css'
+import HeroSection from './HeroSection.jsx'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <HeroSection />
     </>
   )
 }

@@ -67,7 +67,7 @@ const Navbar = () => {
             <a href="#home" className="home">Home</a>
         </header>
 
-    );
+    );    
 }
  
 export default Navbar;

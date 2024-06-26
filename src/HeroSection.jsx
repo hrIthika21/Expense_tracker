@@ -1,12 +1,54 @@
 import './expense_tracker.css'
 
 const HeroSection = () => {
+    
+    const arrow=document.querySelector(".arrow");
+    const categories=document.querySelector(".categories");
+    const item=document.querySelector(".item");
+    const cost=document.querySelector(".cost");
+    const form=document.querySelector(".form");
+
+    function openCategories(){
+        arrow.classList.toggle("active");
+        categories.classList.toggle("active");
+    }
+
+    function Submit(){
+        if(check()){
+            alert("You have submitted yor expense for today, woohoo!!")
+            item.value="";
+            cost.value="";
+        }
+    }
+
+    function check(){
+        item.value.trim();
+        cost.value.trim().replace("$","");
+
+        if(item.value==="" || cost.value===" "){
+            alert("Please, enter valid information into the form");
+            return false;
+        }
+        if(isNaN(cost.value) || !isNaN(item.value)){
+            alert("Please, enter valid information into the form");
+            return false;
+        }
+
+        if(/[^0-9]/.test(cost.value)){
+            alert("Please, enter valid information into the form");
+            return false
+        }
+        return true;
+    }
+
 
     return ( 
         <body>
-            <p className='subtitle'>make your life easier with <p className="money">money track</p></p>
-
-                
+            <div className="customer">
+                <img src="https://img.freepik.com/free-photo/happiness-wellbeing-confidence-concept-cheerful-attractive-african-american-woman-curly-haircut-cross-arms-chest-self-assured-powerful-pose-smiling-determined-wear-yellow-sweater_176420-35063.jpg"></img>
+                <h1>Hello there,  <h1 className="hrithika">Hrithika</h1></h1>
+            </div>
+            <p className='subtitle'>Be mindful of the money you spent with <p className="money">money track</p></p>
             <div className="content">
                 <div className="content-left">
                         <p>Track your balance and total money spent</p>
@@ -105,7 +147,28 @@ const HeroSection = () => {
                     </svg>
                 </div>
             </div>
-        </body>
+            <legend>Add your Amount :</legend>
+            <div className="form">
+            <form>
+                <fieldset className='amount'>
+                    <fieldset>Name your expense:</fieldset>
+                    <input type='text' placeholder='Eg:Coffee' className="item"></input>
+                    <span className='arrow' onClick={openCategories}></span>
+                    <div className="off-screen-menu-categories">
+                        <ul className='categories'>
+                            <li onClick={()=>item.value='Coffee'}>Coffee</li>
+                            <li onClick={()=>item.value='Shopping'}>Shopping</li>
+                            <li onClick={()=>item.value='Rent'}>Rent</li>
+                        </ul>
+                    </div>
+                    <fieldset>Amount:</fieldset>
+                    <input type='number' placeholder='$150' className='cost'></input>
+                    <span className='arrow'></span>
+                    <button className='submit' onClick={Submit}>Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    </body>
      );
 }
  

@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com");
 @import url("https://fonts.gstatic.com");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+SK:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com");
+@import url("https://fonts.gstatic.com");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+NO:wght@100..400&display=swap');
+
 
 
 @media(max-width:750px) {
@@ -119,29 +124,175 @@ visibility: hidden;
 position: absolute;
 }
 
+
+}
+
+.arrow{
+    display: inline-block;
+    height: 0;
+    width:0;
+    background-color:transparent;
+    border: 10px solid transparent;
+    border-top:10px solid black ;
+    position: absolute;
+    left:73%;
+    margin-top:3%;
+}
+
+.arrow:hover{
+    cursor: pointer;
+}
+
+.arrow.active{
+    transform: rotate(180deg);
+}
+
+.customer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+img{
+    border-radius: 50%;
+    height:250px;
+    width: 270px;
+    margin-top: 7%;
+    margin-left:3%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+body div li{
+    list-style: none;
+    margin-left: -6%;
+    width:290px;
+}
+
+.categories{
+    margin-top: -4.7%;
+    width:290px;
+    position: absolute;
+    top:110.5%;
+    background-color: rgb(246, 246, 246);
+    margin-left:3%;
+    width: 300px;
+    visibility: hidden;
+}
+
+.categories.active{
+    visibility: visible;
+}
+
+.categories li::after{
+    content:"";
+    display: block;
+    height:1px;
+    width:290px;
+    background-color: rgb(33, 33, 33);
+    color: rgb(41, 40, 40);
+    position: absolute;
+    margin-left: -4%;
+
+}
+
+.categories li:hover{
+    cursor: pointer;
+    background-color: rgb(238, 236, 236);
+    margin-left: -3%;
+}
+
+
+.form{
+    margin:5%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.submit{
+    text-transform: uppercase;
+    display:block;
+    margin-left: 70%;
+    margin-bottom: 5%;
+    transition: 0.3s;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+}
+
+.submit:hover{
+    letter-spacing :3px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 2px ;
+}
+
+fieldset{
+    margin-left:5%;
+    margin-top:5%;
+    margin-bottom: 2%;
+    font-family: "Playwrite NO", cursive;
+    font-optical-sizing: "auto";
+    font-weight: "200px";
+    font-style: "normal";
+}
+
+input{
+    margin-left: 4%;
+    margin-bottom: 5%;
+    background-color: rgb(242, 255, 255);
+}
+
+
+.hrithika{
+    color:rgb(108, 191, 223);
+    display: inline;
+    font-size: larger;
+    margin-left: -0.05%;
+}
+
+body legend{
+    margin-top: 15%;
+    display:flex;
+    justify-content: center;
+    font-family: "Playwrite NO", cursive;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+    margin-bottom: 5%;
+}
+
+body h1{
+    margin-left:6%;
+    margin-top: 17%;
+    flex:1;
 }
 
 .subtitle{
     text-transform: uppercase;
     text-align: center;
-    justify-content: center;
     margin-top: 3%;
+    margin-top: 10%;
 }
 
 body p .money{
     font-weight:bold;
-    display: inline;
     color: black;
+    letter-spacing:10px;
+    margin-top: 5%;
 }
 
 .content{
-    border: 1px solid black;
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(235, 234, 234);
     margin-left:5%;
     margin-right: 5%;
     border-radius: 20px;
     display: flex;
     flex-direction: row;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5%;
+
 }
 
 .content-left{
@@ -238,13 +389,14 @@ body p .money{
 body{
 max-width:100%;
 min-height: 100vh;
-background-color: rgb(249, 249, 235);
+background-color: rgb(255, 255, 255);
 padding: 0 0 0 0;
 margin: 0;
 border: 0ch;
 }
+
 :root{
---color:
+--color:var(Color);
 }
 
 header{
@@ -265,13 +417,14 @@ padding: 10px 10px;
 
 header p{
 display:inline;
-color:white;
+color:rgb(255, 255, 255);
 font-family: "Playwrite SK", cursive;
 font-optical-sizing: auto;
 font-weight: 400;
 font-style: normal;
 align-items: auto;
 }
+
 header a{
 text-decoration-line: none;
 color:rgb(184, 183, 183);

@@ -54,7 +54,7 @@ const Navbar = () => {
             <div className="off-screen-menu" >
                     <a href="#home">Home</a>
                     <a href="#add_expense">Add Expense</a>
-                    <a href="expenses_list">Expense List</a>
+                    <a href="#expenses_list">Expense List</a>
             </div>
 
             <div className="ham-menu" onClick={HamMenu}>

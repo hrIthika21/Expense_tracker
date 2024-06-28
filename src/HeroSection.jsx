@@ -1,22 +1,46 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import './expense_tracker.css'
 
 const HeroSection = () => {
-
-    const [item,setItem]=useState("");
-    const [cost,setCost]=useState("");
+    console.log(3);
+    const [item,setItem]=useState(()=>{
+        console.log("setItem")
+        return "";
+    });
+    const [cost,setCost]=useState(()=>{
+        console.log("setCost")
+        return "";
+    });
     const arrow=document.querySelector(".arrow");
     const categories=document.querySelector(".categories");
-    const Item=document.querySelector(".Item");
-    const Cost=document.querySelector(".Cost");
+    const date=new Date();
+    document.querySelector(".date").innerHTML=date;
+
+
+
 
     function openCategories(){
         arrow.classList.toggle("active");
         categories.classList.toggle("active");
     }
 
-    function Submit(){
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+
+  useEffect(() => {
+    // Disable submit button if either input is empty
+    if (item.trim() === "" || cost.trim() === "") {
+      setIsSubmitDisabled(true);
+    } else {
+      setIsSubmitDisabled(false);
+    }
+  }, [item, cost]);
+
+
+
+    function Submit(e){
+        e.preventDefault();
         if(check()){
+
             alert("You have submitted your expense for today, woohoo!!");
             setItem("");
             setCost("");
@@ -24,22 +48,18 @@ const HeroSection = () => {
     }
 
     function check(){
-        const trimmedItem=Item.trim();
-        const trimmedCost=Cost.trim().replace("$","");
-        console.log(item.trim());
-        console.log(cost.trim());
+        const trimmedItem=item.trim();
+        const trimmedCost=cost.trim();
+        console.log(`Item: '${item}', Trimmed Item: '${trimmedItem}'`); // Debugging
+        console.log(`Cost: '${cost}', Trimmed Cost: '${trimmedCost}'`); // Debugging
 
-        if(trimmedItem==="" || trimmedCost===""){
-            alert("Please, enter valid information into the fo");
-            return false;
-        }
-        else if(isNaN(trimmedCost) || !isNaN(trimmedItem)){
-            alert("Please, enter valid information into the for");
+        if(isNaN(trimmedCost) || !isNaN(trimmedItem)){
+            alert("Please, enter valid information into the form");
             console.log(2)
             return false;
         }
 
-        else if(/[^0-9]/.test(trimmedCost)){
+        if(/[^0-9]/.test(trimmedCost)){
             alert("Please, enter valid information into the form");
             console.log("hi")
             return false
@@ -153,24 +173,25 @@ const HeroSection = () => {
                     </svg>
                 </div>
             </div>
+
             <legend id="add_expense">Add your Amount :</legend>
             <div className="form">
             <form>
                 <fieldset className='amount'>
                     <fieldset>Name your expense:</fieldset>
-                    <input type='text' placeholder='Eg:Coffee' className='Item'></input>
+                    <input type='text' placeholder='Eg:Coffee' className='Item' value={item} onChange={(ev) => setItem(ev.target.value)}></input>
                     <span className='arrow' onClick={openCategories}></span>
                     <div className="off-screen-menu-categories">
                         <ul className='categories'>
-                            <li onClick={()=>Item.value="Coffee"}>Coffee</li>
-                            <li onClick={()=>Item.value="Shopping"}>Shopping</li>
-                            <li onClick={()=>Item.value="Rent"}>Rent</li>
+                            <li onClick={()=>{setItem("Coffee")}}>Coffee</li>
+                            <li onClick={()=>{setItem("Shopping")}}>Shopping</li>
+                            <li onClick={()=>{setItem("Rent")}}>Rent</li>
                         </ul>
                     </div>
-                    <fieldset>Amount:</fieldset>
-                    <input type='number' placeholder='$150' className='Cost'></input>
-                    <span className='arrow'></span>
-                    <button className='submit' onClick={Submit}>Submit</button>
+                    <fieldset>Amount (in rupees):</fieldset>
+                    <input type='number' placeholder='150' className='Cost' value={cost} onChange={(eve)=>setCost(eve.target.value)}></input>
+                    <fieldset className='date'></fieldset>
+                    <button className='submit' onClick={Submit} disabled={isSubmitDisabled}>Submit</button>
                 </fieldset>
             </form>
         </div>

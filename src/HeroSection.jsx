@@ -1,12 +1,14 @@
+import { useState } from 'react';
 import './expense_tracker.css'
 
 const HeroSection = () => {
-    
+
+    const [item,setItem]=useState("");
+    const [cost,setCost]=useState("");
     const arrow=document.querySelector(".arrow");
     const categories=document.querySelector(".categories");
-    const item=document.querySelector(".item");
-    const cost=document.querySelector(".cost");
-    const form=document.querySelector(".form");
+    const Item=document.querySelector(".Item");
+    const Cost=document.querySelector(".Cost");
 
     function openCategories(){
         arrow.classList.toggle("active");
@@ -15,36 +17,40 @@ const HeroSection = () => {
 
     function Submit(){
         if(check()){
-            alert("You have submitted yor expense for today, woohoo!!")
-            item.value="";
-            cost.value="";
+            alert("You have submitted your expense for today, woohoo!!");
+            setItem("");
+            setCost("");
         }
     }
 
     function check(){
-        item.value.trim();
-        cost.value.trim().replace("$","");
+        const trimmedItem=Item.trim();
+        const trimmedCost=Cost.trim().replace("$","");
+        console.log(item.trim());
+        console.log(cost.trim());
 
-        if(item.value==="" || cost.value===" "){
-            alert("Please, enter valid information into the form");
+        if(trimmedItem==="" || trimmedCost===""){
+            alert("Please, enter valid information into the fo");
             return false;
         }
-        if(isNaN(cost.value) || !isNaN(item.value)){
-            alert("Please, enter valid information into the form");
+        else if(isNaN(trimmedCost) || !isNaN(trimmedItem)){
+            alert("Please, enter valid information into the for");
+            console.log(2)
             return false;
         }
 
-        if(/[^0-9]/.test(cost.value)){
+        else if(/[^0-9]/.test(trimmedCost)){
             alert("Please, enter valid information into the form");
+            console.log("hi")
             return false
         }
-        return true;
+    return true;
     }
 
 
     return ( 
         <body>
-            <div className="customer">
+            <div className="customer" id="home">
                 <img src="https://img.freepik.com/free-photo/happiness-wellbeing-confidence-concept-cheerful-attractive-african-american-woman-curly-haircut-cross-arms-chest-self-assured-powerful-pose-smiling-determined-wear-yellow-sweater_176420-35063.jpg"></img>
                 <h1>Hello there,  <h1 className="hrithika">Hrithika</h1></h1>
             </div>
@@ -147,22 +153,22 @@ const HeroSection = () => {
                     </svg>
                 </div>
             </div>
-            <legend>Add your Amount :</legend>
+            <legend id="add_expense">Add your Amount :</legend>
             <div className="form">
             <form>
                 <fieldset className='amount'>
                     <fieldset>Name your expense:</fieldset>
-                    <input type='text' placeholder='Eg:Coffee' className="item"></input>
+                    <input type='text' placeholder='Eg:Coffee' className='Item'></input>
                     <span className='arrow' onClick={openCategories}></span>
                     <div className="off-screen-menu-categories">
                         <ul className='categories'>
-                            <li onClick={()=>item.value='Coffee'}>Coffee</li>
-                            <li onClick={()=>item.value='Shopping'}>Shopping</li>
-                            <li onClick={()=>item.value='Rent'}>Rent</li>
+                            <li onClick={()=>Item.value="Coffee"}>Coffee</li>
+                            <li onClick={()=>Item.value="Shopping"}>Shopping</li>
+                            <li onClick={()=>Item.value="Rent"}>Rent</li>
                         </ul>
                     </div>
                     <fieldset>Amount:</fieldset>
-                    <input type='number' placeholder='$150' className='cost'></input>
+                    <input type='number' placeholder='$150' className='Cost'></input>
                     <span className='arrow'></span>
                     <button className='submit' onClick={Submit}>Submit</button>
                 </fieldset>

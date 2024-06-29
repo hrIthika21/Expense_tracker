@@ -20,6 +20,10 @@ const HeroSection = () => {
     const [newItem, setNewItem] = useState('');
     const [newCost, setNewCost] = useState('');
 
+    function store(){
+        localStorage.setItem(item,cost);
+    }
+
     const editExpense=(index)=>{
         setEditIndex(index);
         setNewItem(expenses[index].item);
@@ -28,8 +32,9 @@ const HeroSection = () => {
 
     const saveExpense = () => {
         const updatedExpenses = expenses.map((expense, index) =>
-          index === editIndex ? { item: newItem, cost: newCost } : expense
+            index === editIndex ? { item: newItem, cost: newCost, d:Date() } : expense
         );
+        store();
         setExpense(updatedExpenses);
         setEditIndex(null);
       };
@@ -62,6 +67,7 @@ const HeroSection = () => {
         if(check()){
             setExpense([...expenses,{item,cost,d}])
             alert("You have submitted your expense for today, woohoo!!");
+            store();
             setItem("");
             setCost("");
         }

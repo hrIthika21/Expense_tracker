@@ -187,6 +187,9 @@
     #cost{
         margin-left: 60%;
     }
+    .total-expense{
+        font-size: 25px;
+    }
 }
 
 @media (min-width:751px){
@@ -289,6 +292,25 @@
         margin-left: 70%;
     }
 
+    .total-expense{
+        font-size: 40px;
+    }
+
+}
+
+.total-expense{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgb(160, 141, 222),rgb(175, 139, 172),rgb(179, 167, 187));
+    margin: 5%;
+    border-radius: 20px;
+    padding: 60px 0 60px 0;
+    color: white;
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
 }
 
 .togethe{
@@ -309,7 +331,6 @@
     display: flex;
     justify-content:flex-end;
 }
-
 
 
 .button{

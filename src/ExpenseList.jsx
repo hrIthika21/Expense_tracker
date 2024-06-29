@@ -10,9 +10,11 @@ function ExpenseList({ expenses,removeExpense,onEditExpense,
     newCost, 
     setNewItem, 
     setNewCost, 
-    saveExpense }) {
+    saveExpense }){
 
-  return (
+    const totalExpense = expenses.reduce((total, expense) => total + parseFloat(expense.cost), 0);
+
+    return (
     <div>
       <h2>Your daily expenses :</h2>
       <ul>
@@ -20,6 +22,7 @@ function ExpenseList({ expenses,removeExpense,onEditExpense,
           <li key={index}>
             {editIndex==index?(
                 <>
+                <span id="date">{expense.d}</span>
                 <div className="togethe">
                     <input 
                         type="text" 
@@ -54,6 +57,9 @@ function ExpenseList({ expenses,removeExpense,onEditExpense,
           </li>
         ))}
       </ul>
+      <div className="total-expense">
+        <div>Total Expense: <div>₹ {totalExpense.toFixed(2)}</div></div>
+      </div>
     </div>
   );
 }

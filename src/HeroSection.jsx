@@ -1,5 +1,6 @@
 import { useState,useEffect } from 'react';
 import './expense_tracker.css'
+import ExpenseList from './ExpenseList';
 
 const HeroSection = () => {
     console.log(3);
@@ -13,10 +14,29 @@ const HeroSection = () => {
     });
     const arrow=document.querySelector(".arrow");
     const categories=document.querySelector(".categories");
-    const date=new Date();
-    document.querySelector(".date").innerHTML=date;
+    let d= Date();
+    const [expenses,setExpense]=useState([]);
+    const [editIndex, setEditIndex] = useState(null);
+    const [newItem, setNewItem] = useState('');
+    const [newCost, setNewCost] = useState('');
 
+    const editExpense=(index)=>{
+        setEditIndex(index);
+        setNewItem(expenses[index].item);
+        setNewCost(expenses[index].cost);
+    };
 
+    const saveExpense = () => {
+        const updatedExpenses = expenses.map((expense, index) =>
+          index === editIndex ? { item: newItem, cost: newCost } : expense
+        );
+        setExpense(updatedExpenses);
+        setEditIndex(null);
+      };
+
+    const removeExpense = (indexToRemove) => {
+        setExpense(expenses.filter((_, index) => index !== indexToRemove));
+      };
 
 
     function openCategories(){
@@ -40,7 +60,7 @@ const HeroSection = () => {
     function Submit(e){
         e.preventDefault();
         if(check()){
-
+            setExpense([...expenses,{item,cost,d}])
             alert("You have submitted your expense for today, woohoo!!");
             setItem("");
             setCost("");
@@ -64,6 +84,7 @@ const HeroSection = () => {
             console.log("hi")
             return false
         }
+
     return true;
     }
 
@@ -77,10 +98,10 @@ const HeroSection = () => {
             <p className='subtitle'>Be mindful of the money you spent with <p className="money">money track</p></p>
             <div className="content">
                 <div className="content-left">
-                        <p>Track your balance and total money spent</p>
+                    <p>Track your balance and total money spent</p>
                 </div>
                 <div className="content-right">
-                        <svg width="130px" height="170px" viewBox="0 0 2764 1543" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="130px" height="170px" viewBox="0 0 2764 1543" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="purse">
                             <g id="card_2">
                                 <rect id="Rectangle 23" x="50" y="112" width="2400" height="1317" fill="#144EA6"/>
@@ -190,10 +211,21 @@ const HeroSection = () => {
                     </div>
                     <fieldset>Amount (in rupees):</fieldset>
                     <input type='number' placeholder='150' className='Cost' value={cost} onChange={(eve)=>setCost(eve.target.value)}></input>
-                    <fieldset className='date'></fieldset>
-                    <button className='submit' onClick={Submit} disabled={isSubmitDisabled}>Submit</button>
+                    <fieldset className='date'>{d}</fieldset>
+                    <button className='submit' onClick={Submit} disabled={isSubmitDisabled}>Enter <p>Expense</p></button>
                 </fieldset>
             </form>
+        </div>
+        <div className="expense-list" id="expenses_list">
+            <ExpenseList expenses={expenses} 
+            removeExpense={removeExpense}
+            onEditExpense={editExpense}
+            editIndex={editIndex}
+            newItem={newItem}
+            newCost={newCost}
+            setNewItem={setNewItem}
+            setNewCost={setNewCost}
+            saveExpense={saveExpense} />
         </div>
     </body>
      );

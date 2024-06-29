@@ -6,6 +6,9 @@
 @import url("https://fonts.gstatic.com");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+NO:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Playwrite+CO:wght@100..400&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Playwrite+CO:wght@100..400&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 
 
@@ -124,9 +127,69 @@
         margin-left:3%;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
+
+    body h1{
+        margin-left:6%;
+        margin-top: 17%;
+        flex:1;
+        color: #fdfdfd;
+    }
+
+    body p .money{
+        font-weight:bold;
+        letter-spacing:10px;
+        margin-top: 5%;
+        color: #E30022;
+    }
+
+    .subtitle{
+        color: #fdfdfd;
+        font-size: xx-large;
+    }
+    
+    .content-left p{
+        font-family: "Playwrite CO", cursive;
+        font-optical-sizing: auto;
+        font-weight:400px;
+        font-style: normal;
+        font-size: 25px;
+    }
+
+    .arrow{
+        position: absolute;
+        left:72%;
+    }
+
+    .categories{
+        width:290px;
+    }
+    
+    .categories li::after{
+        width:290px;
+        margin-left: -5%;
+    }
+
+    body div li{
+        width: 290px;
+    }
+
+    .expense-list h2{
+        font-weight: 400px;
+        font-size: 30px;
+    
+    }
+
+    body legend{
+        color: #fdfdfd;
+        font-size: 30px;
+    }
+
+    #cost{
+        margin-left: 60%;
+    }
 }
 
-@media (min-width:760px){
+@media (min-width:751px){
     .off-screen-menu,.ham-menu{
         visibility: hidden;
         position: absolute;
@@ -141,8 +204,208 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
+    body h1{
+        margin-left:20%;
+        margin-right:15%;
+        margin-top: 20%;
+        flex:1;
+        color: #fdfdfd;
+    }
+    
+
+    .subtitle{
+        font-size: 50px;
+        font-weight: 200px;
+        color: #ffffff;
+    }
+
+    body p .money{
+        letter-spacing:20px ;
+        font-weight:bold;
+        margin-top: 5%;
+        color: #E30022;
+    }
+
+    .content-left p{
+        font-size: 50px;
+        font-family: "Playwrite CO", cursive;
+        font-optical-sizing: auto;
+        font-weight:400px;
+        font-style: normal;
+
+    }
+
+    .content-right svg{
+        width:300px;
+        height: 350px;
+        margin-top: 10%;
+        opacity: 1;
+    }
+
+    body legend{
+        font-size: 50px;
+        color: #fdfdfd;
+    }
+
+    fieldset{
+        font-size: 30px;
+    }
+
+    .arrow{
+        position: absolute;
+        left:50%;
+    }
+
+    .categories{
+        width: 550px;
+    }
+
+    .categories li::after{
+        width: 550px;
+
+    }
+
+    body div li{
+        width: 550px;
+    }
+
+    .expense-list h2{
+        font-weight: 400px;
+        font-size: 50px;
+    }
+
+    #item{
+        font-size: 25px;
+        font-family: "Comfortaa", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    #cost{
+        font-size: 25px;
+        font-family: "Comfortaa", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        margin-left: 70%;
+    }
 
 }
+
+.togethe{
+    display: flex;
+    flex-direction: row
+}
+
+.expense-item-input{
+    flex:33.3%;
+    
+}
+
+.expense-cost-input{
+    flex:33.3%
+}
+
+.save{
+    display: flex;
+    justify-content:flex-end;
+}
+
+
+
+.button{
+    display: flex;
+    justify-content: right;
+
+}
+
+.edit{
+    transition: 0.3s;
+    padding: 0px 5px 0px 5px;
+}
+
+.edit:hover{
+    letter-spacing :2px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 2px ;
+  
+}
+
+
+
+.up{
+    display: flex;
+    flex-direction: row;
+}
+
+.trash{
+    width: 20px;
+    height: 30px;
+    color: #e30000;
+    transition: 0.3s;
+}
+
+.trash:hover{
+    background-color: #bcb8b8;
+    visibility: visible;
+}
+
+.together{
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+}
+
+#item{
+    flex:3;
+}
+
+#cost{
+    flex:1;
+}
+
+#date{
+    color:plum;
+    display: block;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+    flex:2;
+
+}
+
+.expense-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: none;
+    width: 100%;
+  }
+  
+  .expense-list li {
+    background-color: #fff;
+    margin: 25px 0px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  .expense-list li:hover{
+    background-color:rgb(242, 242, 242) ;
+    border:2px solid black;
+  }
+
+.expense-list h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-top: 15%;
+}
+
 
 .arrow{
     display: inline-block;
@@ -151,9 +414,7 @@
     background-color:transparent;
     border: 10px solid transparent;
     border-top:10px solid black ;
-    position: absolute;
-    left:72%;
-    margin-top:3%;
+    margin-top:2%;
 }
 
 .arrow:hover{
@@ -170,27 +431,18 @@
     justify-content: center;
 }
 
-body h1{
-    margin-left:6%;
-    margin-top: 17%;
-    flex:1;
-}
-
 body div li{
     list-style: none;
     margin-left: -6%;
-    width:290px;
 }
 
 .categories{
-    margin-top: -4.7%;
-    width:290px;
+    margin-top:-4%;
     position: absolute;
-    top:110.5%;
     background-color: rgb(246, 246, 246);
     margin-left:3%;
-    width: 300px;
     visibility: hidden;
+    margin-right: 0%;
 }
 
 .categories.active{
@@ -201,11 +453,9 @@ body div li{
     content:"";
     display: block;
     height:1px;
-    width:290px;
     background-color: rgb(33, 33, 33);
     color: rgb(41, 40, 40);
     position: absolute;
-    margin-left: -4%;
 
 }
 
@@ -221,18 +471,22 @@ body div li{
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 0.6;
+
 }
 
 .submit{
     text-transform: uppercase;
     display:block;
-    margin-left: 70%;
+    margin-left: 68%;
     margin-bottom: 5%;
     transition: 0.3s;
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200px;
     font-style: normal;
+    padding: 0px 15px 0px 15px;
+    margin-top: 5%;
 }
 
 .submit:hover{
@@ -284,13 +538,6 @@ body legend{
     margin-top: 10%;
 }
 
-body p .money{
-    font-weight:bold;
-    color: black;
-    letter-spacing:10px;
-    margin-top: 5%;
-}
-
 .content{
     background-color: rgb(235, 234, 234);
     margin-left:5%;
@@ -300,7 +547,7 @@ body p .money{
     flex-direction: row;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 5%;
-
+    opacity: 0.6;
 }
 
 .content-left{
@@ -339,7 +586,6 @@ body p .money{
 #main_purse{
     animation: main 3s ease-out infinite;
     animation-delay:10s ;
-
 }
 
 #money{
@@ -395,54 +641,58 @@ body p .money{
 }
 
 body{
-max-width:100%;
-min-height: 100vh;
-background-color: rgb(255, 255, 255);
-padding: 0 0 0 0;
-margin: 0;
-border: 0ch;
+    max-width:100%;
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+    padding: 0 0 0 0;
+    margin: 0;
+    border: 0ch;
+    background-image: url(https://images.pexels.com/photos/21492/pexels-photo.jpg?cs=srgb&dl=pexels-bclarkphoto-21492.jpg&fm=jpg);
+    background-image: cover;
+    
 }
 
 :root{
---color:var(Color);
+    --color:var(Color);
 }
 
 header{
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-font-family: "Playwrite SK", cursive;
-font-optical-sizing: auto;
-font-style: normal;
-background-color: black;
-padding: 20px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Playwrite SK", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: black;
+    padding: 20px 0px 0px 0px;
 }
 
 
 header svg{
-padding: 10px 10px;
+    width:100px;
+    height:50px;
 }
 
 header p{
-display:inline;
-color:rgb(255, 255, 255);
-font-family: "Playwrite SK", cursive;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
-align-items: auto;
+    display:inline;
+    color:rgb(255, 255, 255);
+    font-family: "Playwrite SK", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    align-items: auto;
 }
 
 header a{
-text-decoration-line: none;
-color:rgb(184, 183, 183);
-padding: 5px 30px 10px 50px;
-box-sizing: border-box;
-float: right;
-align-items: center;
-transition: 0.3s;
-position: relative;
-letter-spacing: 0.5px;
+    text-decoration-line: none;
+    color:rgb(184, 183, 183);
+    padding: 5px 30px 10px 50px;
+    box-sizing: border-box;
+    float: right;
+    align-items: center;
+    transition: 0.3s;
+    position: relative;
+    letter-spacing: 0.5px;
 }
 
 

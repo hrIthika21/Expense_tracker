@@ -1,5 +1,5 @@
 # React + Vite
-#This file is deployed at Netlify
+#The site is live at https://lively-starburst-fc7c88.netlify.app/#expenses_list
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
